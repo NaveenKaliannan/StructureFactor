@@ -85,7 +85,6 @@ void Printrdf(vector<Atom> &r, uint nsteps, uint natoms, const vector<float> & L
               for(uint j = 0;j < natoms;++j)
                 {
                   idj = natoms*t+j;
-                  // this condition gives the rdf for O and H atom.
                   if (r[idi].symbol[0] == alpha && r[idj].symbol[0] == beta && i != j)
                     {                                       
                       x = min_distance(r[idj].x - r[idi].x, L[0]);
@@ -104,7 +103,6 @@ void Printrdf(vector<Atom> &r, uint nsteps, uint natoms, const vector<float> & L
         }
     }
 
-  // consine thetha per water molecule
   ofstream outfile(filename);
   for(uint RDF_i = 1;RDF_i < RDF_size - 1; ++RDF_i)
     {
